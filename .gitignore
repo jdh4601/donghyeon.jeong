@@ -1,0 +1,14 @@
+node_modules/
+.next/
+.next-production/
+out/
+.env*
+!.env.example
+.data/
+.content-source.json
+.taskmaster/
+playwright-report/
+test-results/
+*.tsbuildinfo
+.DS_Store
+.vercel

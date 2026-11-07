@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next-production",
+  "regions": ["hnd1"],
+  "crons": [{ "path": "/api/sync", "schedule": "0 18 * * *" }]
+}

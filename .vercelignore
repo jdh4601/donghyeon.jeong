@@ -1,0 +1,13 @@
+.git/
+.next/
+.next-production/
+.data/
+.taskmaster/
+.content-source.json
+.env*
+artifacts/
+tests/
+scripts/import-snapshot.py
+scripts/render*
+*.tsbuildinfo
+WEBSITE_PLAN_AND_DESIGN_GUIDE.md
