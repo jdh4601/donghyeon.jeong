@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -49,9 +48,9 @@ export function Header() {
     <header className="site-header">
       <nav aria-label="주요 섹션">
         {items.map(({ id, label }) => (
-          <Link
+          <a
             key={id}
-            href={home ? `#${id}` : `/#${id}`}
+            href={`/#${id}`}
             className={home && active === id ? "is-active" : ""}
             aria-current={home && active === id ? "location" : undefined}
             onClick={() => {
@@ -59,7 +58,7 @@ export function Header() {
             }}
           >
             {label}
-          </Link>
+          </a>
         ))}
       </nav>
     </header>

@@ -437,3 +437,6 @@ Manifesto 항목의 위아래 패딩은 데스크톱 10px·모바일 9px, 박스
 ### 표시 문구와 미리보기 닫기
 - 내비게이션과 섹션 제목은 about, manifesto, thoughts 소문자로 표시한다. Donghyeon Jeong은 유지한다.
 - 책·영화 미리보기의 × 버튼은 제거한다. 문구 재클릭, 바깥 클릭, Escape로 닫을 수 있으며 hover로 열린 창은 포인터가 벗어나면 닫힌다.
+
+### 섹션 URL
+내비게이션은 루트 기준 네이티브 앵커(`/#about`, `/#manifesto`, `/#thoughts`, `/#top`)를 사용한다. 현재 fragment에 새 fragment를 덧붙이는 클라이언트 라우터 경로를 거치지 않아 선택한 섹션 하나만 URL에 남는다.
