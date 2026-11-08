@@ -18,9 +18,11 @@ export function Artwork({ src }: { src: string }) {
             setOpen(true);
           }
         }}
-        onPointerLeave={() => {
-          setOpen(false);
-          setDismissed(false);
+        onPointerLeave={(event) => {
+          if (event.pointerType === "mouse") {
+            setOpen(false);
+            setDismissed(false);
+          }
         }}
         onBlur={(event) => {
           if (!event.currentTarget.contains(event.relatedTarget))
@@ -48,7 +50,7 @@ export function Artwork({ src }: { src: string }) {
           }}
           onClick={() => {
             setDismissed(false);
-            setOpen((value) => !value);
+            setOpen(true);
           }}
         >
           <Image
@@ -66,6 +68,17 @@ export function Artwork({ src }: { src: string }) {
           className="artwork-label"
           hidden={!open || dismissed}
         >
+          <button
+            className="artwork-close"
+            aria-label="Close artwork details"
+            onClick={() => {
+              trigger.current?.focus();
+              setOpen(false);
+              setDismissed(true);
+            }}
+          >
+            ×
+          </button>
           <p className="artwork-artist">Caspar David Friedrich</p>
           <p className="artwork-dates">1774–1840</p>
           <p className="artwork-title">

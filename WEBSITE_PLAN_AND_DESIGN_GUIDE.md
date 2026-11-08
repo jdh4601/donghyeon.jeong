@@ -166,7 +166,7 @@ Notion 연결 도구로 메인과 글 22개를 조회했다. Computer Use는 화
 
 ### 4.3 그림과 이미지
 
-첫 그림은 원본 비율 약 1.55:1을 유지하고 전체 화면 폭이 아닌 본문 폭에 맞춘다. 기본 화면에서는 그림 위에 글씨를 겹치지 않는다. 수도승과 수평선이 잘리지 않도록 기본은 크롭 없이 표시한다. 대체 텍스트를 제공한다. 캡션은 가운데 정렬하고 작가명 `Caspar David Friedrich`, 작품명 `Monk by the Sea`(이탤릭), 연도 `1808–1810`을 영어로 두 줄에 표시한다. 마우스 hover 또는 키보드 포커스로 흰색 작품 설명을 열고 Escape로 닫는다. 모바일은 그림을 눌러 설명을 아래에 펼친다. 설명에는 작가 생몰연도, Oil on canvas, 110 × 171.5 cm, 짧은 해설, 소장처 Alte Nationalgalerie, Staatliche Museen zu Berlin와 작품번호 NG 9/85를 표기한다. 소장 미술관의 [공식 소장 정보](https://id.smb.museum/object/965511)와 [공식 영문 자료](https://www.smb.museum/fileadmin/website/Presse/Pressematerial/2024/04/05_ANG_CDF_Werkliste.pdf)를 근거로 하며, 실제 벽면 라벨의 레이아웃을 복제했다고 주장하지 않는다. 별도의 Intro 헤딩 없이 소개 본문으로 이어진다.
+첫 그림은 원본 비율 약 1.55:1을 유지하고 전체 화면 폭이 아닌 본문 폭에 맞춘다. 기본 화면에서는 그림 위에 글씨를 겹치지 않는다. 수도승과 수평선이 잘리지 않도록 기본은 크롭 없이 표시한다. 대체 텍스트를 제공한다. 캡션은 가운데 정렬하고 작가명 `Caspar David Friedrich`, 작품명 `Monk by the Sea`(이탤릭), 연도 `1808–1810`을 영어로 두 줄에 표시한다. 마우스 hover 또는 키보드 포커스로 흰색 작품 설명을 열고 Escape로 닫는다. 모바일도 그림을 누르면 설명을 그림 안에 겹쳐 표시한다. 설명은 그림 높이를 넘지 않으며 긴 내용은 설명 안에서 스크롤한다. 닫기 버튼과 Escape로 닫을 수 있다. 설명에는 작가 생몰연도, Oil on canvas, 110 × 171.5 cm, 짧은 해설, 소장처 Alte Nationalgalerie, Staatliche Museen zu Berlin와 작품번호 NG 9/85를 표기한다. 소장 미술관의 [공식 소장 정보](https://id.smb.museum/object/965511)와 [공식 영문 자료](https://www.smb.museum/fileadmin/website/Presse/Pressematerial/2024/04/05_ANG_CDF_Werkliste.pdf)를 근거로 하며, 실제 벽면 라벨의 레이아웃을 복제했다고 주장하지 않는다. 별도의 Intro 헤딩 없이 소개 본문으로 이어진다.
 
 첫 이미지에 표시 크기를 미리 예약해 로딩 중 화면이 밀리지 않게 한다. 첫 이미지는 우선 로딩하고 글 하단 이미지는 필요할 때 불러온다. 작가의 저작권과 별개로 실제 사용할 디지털 이미지 파일의 출처·이용 조건을 이관 전에 확인하고 기록한다.
 
