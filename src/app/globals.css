@@ -573,6 +573,76 @@ section {
 .hero figcaption {
   text-align: center;
 }
+.artwork figcaption span {
+  display: block;
+}
+.artwork-stage {
+  position: relative;
+}
+.artwork-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  cursor: help;
+}
+.artwork-trigger:focus-visible {
+  outline: 1px solid var(--muted);
+  outline-offset: 5px;
+}
+.artwork-label {
+  position: absolute;
+  z-index: 1;
+  right: 16px;
+  bottom: 16px;
+  width: min(350px, calc(100% - 32px));
+  padding: 24px;
+  background: var(--paper, #fff);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.45;
+  text-align: left;
+}
+.artwork-label p {
+  margin: 0;
+}
+.artwork-label .artwork-artist {
+  font-size: 18px;
+  font-weight: 550;
+}
+.artwork-dates,
+.artwork-material,
+.artwork-label a,
+.artwork-inventory {
+  color: var(--muted);
+  font-size: 13px;
+}
+.artwork-label .artwork-title {
+  margin-top: 14px;
+  font-size: 18px;
+}
+.artwork-label .artwork-description {
+  margin-block: 16px;
+}
+.artwork-label a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.artwork-inventory {
+  display: block;
+  margin-top: 4px;
+}
+@media (max-width: 767px) {
+  .artwork-label {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    padding: 20px 0 8px;
+  }
+}
 .sr-only {
   position: absolute;
   width: 1px;

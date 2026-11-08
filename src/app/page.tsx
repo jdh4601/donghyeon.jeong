@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { getContent } from "@/lib/content";
 import { sortArticles } from "@/lib/types";
 import { Prose } from "@/components/prose";
 import { Socials } from "@/components/socials";
+import { Artwork } from "@/components/artwork";
 import { notFound } from "next/navigation";
 
 export const dynamic = "force-dynamic";
@@ -17,18 +17,7 @@ export default async function Home() {
   return (
     <main id="main" className="home content-column">
       <section id="top" aria-label="바닷가의 수도승" className="hero">
-        <figure>
-          <Image
-            src={data.home.image}
-            unoptimized={data.home.image.startsWith("/media/")}
-            alt="넓고 푸른 하늘과 어두운 바다 앞에 홀로 서 있는 수도승. 카스파르 다비트 프리드리히의 그림."
-            width={1555}
-            height={1000}
-            priority
-            sizes="(max-width: 767px) calc(100vw - 48px), 720px"
-          />
-          <figcaption>{data.home.caption}</figcaption>
-        </figure>
+        <Artwork src={data.home.image} />
       </section>
       <section
         id="intro"
