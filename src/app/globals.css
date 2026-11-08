@@ -275,7 +275,7 @@ section {
 }
 .principles {
   list-style: none;
-  padding: 28px 32px;
+  padding: 20px 32px;
   margin: 0;
   background: var(--surface);
 }
@@ -283,7 +283,7 @@ section {
   display: flex;
   gap: 24px;
   align-items: baseline;
-  padding-block: 15px;
+  padding-block: 10px;
 }
 .principle-number {
   font-size: 10.4px;
@@ -501,11 +501,11 @@ section {
     top: -12px;
   }
   .principles {
-    padding: 18px 20px;
+    padding: 14px 20px;
   }
   .principles li {
     gap: 16px;
-    padding-block: 14px;
+    padding-block: 9px;
   }
   .principle-en {
     font-size: 16px;
