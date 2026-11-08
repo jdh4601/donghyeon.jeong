@@ -84,10 +84,13 @@ export function normalizeQuotes(markdown: string) {
 export function Prose({
   markdown,
   links = {},
+  leadImageWidth,
 }: {
   markdown: string;
   links?: Record<string, string>;
+  leadImageWidth?: number;
 }) {
+  const leadingImage = markdown.match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1];
   return (
     <div className="prose">
       <ReactMarkdown
@@ -138,6 +141,16 @@ export function Prose({
             typeof src === "string" ? (
               <img
                 className="article-image"
+                style={
+                  leadImageWidth && src === leadingImage
+                    ? {
+                        width: leadImageWidth,
+                        maxWidth: "100%",
+                        display: "block",
+                        marginInline: "auto",
+                      }
+                    : undefined
+                }
                 src={src}
                 alt={alt}
                 loading="lazy"

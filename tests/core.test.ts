@@ -281,3 +281,56 @@ test("inline previews preserve Notion prose and support both Joker phrasings", (
   assert.match(alternate, /class="inline-preview-trigger"/);
   assert.match(alternate, /, 감수합니다\./);
 });
+
+test("a compact lead image preserves its source and leaves later images full width", () => {
+  const markdown =
+    "![album](/media/album)\n\n본문\n\n![diagram](/media/diagram)";
+  const html = renderToStaticMarkup(
+    createElement(Prose, { markdown, leadImageWidth: 240 }),
+  );
+  assert.match(
+    html,
+    /style="width:240px;max-width:100%;display:block;margin-inline:auto" src="\/media\/album"/,
+  );
+  assert.match(html, /class="article-image" src="\/media\/diagram"/);
+  const ordinary = renderToStaticMarkup(createElement(Prose, { markdown }));
+  assert.doesNotMatch(ordinary, /width:240px/);
+});
+
+test("Notion list start indices survive paragraphs, continuation and restarts", async () => {
+  const item = (text: string, start?: number) => ({
+    id: text,
+    type: "numbered_list_item",
+    numbered_list_item: {
+      rich_text: [{ plain_text: text }],
+      ...(start === undefined ? {} : { list_start_index: start }),
+    },
+  });
+  const paragraph = {
+    id: "p",
+    type: "paragraph",
+    paragraph: { rich_text: [{ plain_text: "설명 문단" }] },
+  };
+  const markdown = await renderBlocks([
+    item("first"),
+    paragraph,
+    item("second", 2),
+    paragraph,
+    item("third", 3),
+    item("fourth"),
+    paragraph,
+    item("restart", 1),
+  ]);
+  const html = renderToStaticMarkup(createElement(Prose, { markdown }));
+  assert.deepEqual(
+    [...html.matchAll(/<ol(?: start="(\d+)")?>/g)].map((m) =>
+      Number(m[1] ?? 1),
+    ),
+    [1, 2, 3, 1],
+  );
+  assert.match(
+    html,
+    /<ol start="3">\s*<li>\s*<p>third<\/p>\s*<\/li>\s*<li>\s*<p>fourth<\/p>\s*<\/li>\s*<\/ol>/,
+  );
+  assert.equal((html.match(/설명 문단/g) ?? []).length, 3);
+});

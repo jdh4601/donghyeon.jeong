@@ -49,7 +49,15 @@ export default async function ArticlePage({ params }: Props) {
             <time dateTime={a.date}>{a.date.replaceAll("-", ". ")}</time>
           )}
         </header>
-        <Prose markdown={a.markdown} links={links} />
+        <Prose
+          markdown={a.markdown}
+          links={links}
+          leadImageWidth={
+            a.id.replaceAll("-", "") === "40b0690db3a68020a732e40401462c74"
+              ? 240
+              : undefined
+          }
+        />
       </article>
       <footer className="article-end">
         <Link href="/#thoughts" className="article-list-return">

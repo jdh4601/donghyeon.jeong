@@ -54,6 +54,7 @@ type BlockBody = {
   url?: string;
   expression?: string;
   checked?: boolean;
+  list_start_index?: number;
 };
 
 export function richText(items: Rich[] = []): string {
@@ -255,7 +256,7 @@ export async function renderBlocks(blocks: NotionBlock[]): Promise<string> {
         break;
       case "numbered_list_item":
         out =
-          "1. " +
+          `${body.list_start_index ?? 1}. ` +
           text +
           (nested
             ? "\n" +
