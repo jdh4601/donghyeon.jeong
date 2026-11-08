@@ -356,6 +356,8 @@ async function homeContent(): Promise<HomeContent> {
     const body = (block[block.type] ?? {}) as BlockBody;
     if (block.type === "image" && !hero) {
       hero = block;
+      // The introduction may start immediately below the painting without a heading.
+      current = "intro";
       continue;
     }
     if (block.type.startsWith("heading_")) {

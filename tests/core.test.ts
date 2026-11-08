@@ -124,9 +124,6 @@ test("durable queue, full sync, unpublishing and failure recovery", async () => 
       },
       caption: rich("그림"),
     }),
-    block("40b0690d-b3a6-806b-a953-d52476906787", "heading_3", {
-      rich_text: rich("Intro"),
-    }),
     block("intro-text", "paragraph", { rich_text: rich("소개") }),
     block("40b0690d-b3a6-804f-b3ac-d7aab2139fb0", "heading_3", {
       rich_text: rich("About"),
@@ -191,6 +188,7 @@ test("durable queue, full sync, unpublishing and failure recovery", async () => 
     const first = await readState<ContentSnapshot>("content");
     assert.equal(first?.articles[0].markdown, "최신 본문");
     assert.equal(first?.home.manifesto.length, 6);
+    assert.equal(first?.home.intro, "소개");
     await enqueueSync("event-1");
     assert.equal((await listState("job:")).length, 0);
     await hideDeletedPage("test-page");
