@@ -445,3 +445,6 @@ Manifesto 항목의 위아래 패딩은 데스크톱 10px·모바일 9px, 박스
 Notion 공식 API의 image 블록은 편집기에서 드래그한 표시 너비를 제공하지 않는다. 현재 본문 기본은 전체 너비이며, Adela 글(`40b0690db3a68020a732e40401462c74`)의 첫 앨범 이미지는 240px·가운데 정렬·최대 너비 100%로 지정한다. 해당 위치의 사진이 동기화로 바뀌어도 표시 크기는 유지한다. 다른 이미지와 첫 화면 그림은 기존 크기를 유지한다.
 
 번호 목록은 Notion의 `numbered_list_item.list_start_index`를 Markdown 시작 번호로 보존한다. 문단 사이로 나뉜 목록의 2·3·4번, 일반 연속 목록, 1부터 재시작하는 목록을 구별한다. 동기화가 다시 실행되어도 같은 규칙을 적용한다.
+
+### 사이트 아이콘
+사용자 요청에 따라 https://hynfinity.substack.com 의 배·바다 사진과 동일한 아이콘을 사용한다. Substack에서 제공하는 48px PNG를 `src/app/icon.png`, 180px PNG를 `src/app/apple-icon.png`에 보관한다. 원본 1278px 사진은 `/hyunfinity-icon-original.png`에서 제공한다. 출처 원본: https://substack-post-media.s3.amazonaws.com/public/images/a366b89a-8e21-4c78-bdf3-86efa8614cfb_1278x1278.png
