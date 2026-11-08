@@ -386,9 +386,13 @@ async function homeContent(): Promise<HomeContent> {
       "Home section mapping changed; keep the last valid version and repair mapping",
     );
   // The social-link paragraph belongs to the fixed About component, not the editable bio.
-  const bio = sections.about.filter(
-    (b) => !JSON.stringify(b).includes("github.com"),
-  );
+  const bio = sections.about.filter((block) => {
+    const text = plain((block[block.type] as BlockBody)?.rich_text)
+      .replace(/:[\w-]+:/g, "")
+      .replace(/[|\s]/g, "")
+      .toLowerCase();
+    return text !== "githublinkedinsubstack";
+  });
   const manifestoText = await renderBlocks(sections.manifesto);
   const principles = manifestoText
     .split(/\n\n(?=\d+\. )/)

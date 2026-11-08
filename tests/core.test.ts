@@ -195,6 +195,33 @@ test("durable queue, full sync, unpublishing and failure recovery", async () => 
     assert.equal(first?.articles[0].markdown, "최신 본문");
     assert.equal(first?.home.manifesto.length, 6);
     assert.equal(first?.home.intro, "소개");
+    // Recreating sections in Notion changes block IDs; their content must still sync.
+    sections.splice(
+      1,
+      4,
+      block("new-intro", "paragraph", { rich_text: rich("교체한 소개 전체") }),
+      block("new-about-heading", "heading_2", { rich_text: rich("About") }),
+      block("new-about", "paragraph", {
+        rich_text: rich(
+          "새 소개와 프로젝트: https://github.com/example/project",
+        ),
+      }),
+      block("new-socials", "paragraph", {
+        rich_text: rich(
+          ":github: github | :linkedin-gray: linkedin | :substack-gray: substack",
+        ),
+      }),
+      block("new-manifesto-heading", "heading_2", {
+        rich_text: rich("Manifesto"),
+      }),
+    );
+    await enqueueSync("replace-home-text");
+    await processQueue();
+    const replaced = await readState<ContentSnapshot>("content");
+    assert.equal(replaced?.home.intro, "교체한 소개 전체");
+    assert.match(replaced!.home.about, /새 소개와 프로젝트/);
+    assert.match(replaced!.home.about, /github.com\/example\/project/);
+    assert.doesNotMatch(replaced!.home.about, /substack/);
     await enqueueSync("event-1");
     assert.equal((await listState("job:")).length, 0);
     await hideDeletedPage("test-page");

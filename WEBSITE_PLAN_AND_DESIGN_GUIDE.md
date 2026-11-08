@@ -398,7 +398,7 @@ Notion 연결에는 대상 콘텐츠에 필요한 읽기 권한만 부여한다.
 
 ## 운영 연결 완료 기록 — 2026-11-08
 
-- 운영 URL: https://donghyeon-jeong.vercel.app
+- 운영 URL: https://donghyeon.me (기존 Vercel 주소: https://donghyeon-jeong.vercel.app)
 - GitHub: https://github.com/jdh4601/donghyeon.jeong (`main`), Vercel Git 연결 완료.
 - Notion: `Donghyeon Website` 연결을 콘텐츠 읽기 전용·사용자 정보 접근 없음으로 생성. 웹사이트 루트만 접근 허용.
 - 공개 정책: Thoughts의 `Published` 체크박스로 관리. 기존 공개 글 22개 체크. 실제 공개 해제 → 운영 목록 21개와 글 주소 404 → 체크 복구 → 22개로 자동 복원 검증 완료.
@@ -407,5 +407,7 @@ Notion 연결에는 대상 콘텐츠에 필요한 읽기 권한만 부여한다.
 - 복구 작업: Vercel Hobby 제한에 맞춰 매일 UTC 18시(한국 시간 03시대), `CRON_SECRET`으로 보호. 실제 최초 예약 실행은 아직 도래하지 않았으며 스케줄 설정·인증 경로를 확인함.
 - 원본 수정은 Notion에서 계속 진행. 새 글은 `Published` 체크 후 공개. 이미 열린 브라우저 탭은 새로고침해야 최신 버전을 표시함.
 - 별도 어드민 페이지는 만들지 않음. 운영 상태·수동 재동기화는 Bearer 인증된 `/api/sync?status=1`, `/api/sync` 사용.
-- 도메인은 사용자 비교 요청에 따라 구매 중단. `dnnhynn.com`과 `donghyeon.me` 모두 아직 구매·연결하지 않음.
+- `donghyeon.me`를 2026-11-08에 1년 US$13.99로 등록. 자동 갱신 꺼짐, 만료일 2027-11-08. 프로젝트와 Vercel 기본 네임서버 연결 완료. DNS 전파 및 HTTPS 접속은 별도 확인. `dnnhynn.com`은 구매하지 않음.
 - 사용자 요청으로 README는 저장소에서 삭제. 개발·디자인 기준과 운영 기록은 이 문서에서 관리.
+
+Intro와 About은 Notion의 본문을 그대로 동기화하며, 기존 본문 블록을 삭제하고 새로 작성해 블록 ID가 바뀌어도 섹션 제목(About, Manifesto, Thoughts)을 유지하면 인식한다. Intro는 그림 다음부터 About 앞까지 읽는다. 전체 본문·헤딩 블록 교체 시나리오를 회귀 테스트로 검증했다.
