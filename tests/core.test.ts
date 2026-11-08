@@ -108,6 +108,7 @@ test("durable queue, full sync, unpublishing and failure recovery", async () => 
   const originalFetch = globalThis.fetch;
   let published = true;
   let fail = false;
+  let enqueueDuringImport = false;
   const rich = (s: string) => [{ plain_text: s }];
   const block = (
     id: string,
@@ -161,9 +162,14 @@ test("durable queue, full sync, unpublishing and failure recovery", async () => 
         ],
         has_more: false,
       };
-    else if (url.includes("blocks/" + root + "/children"))
+    else if (url.includes("blocks/" + root + "/children")) {
       body = { results: sections, has_more: false };
-    else if (url.includes("blocks/principles/children"))
+      if (enqueueDuringImport) {
+        enqueueDuringImport = false;
+        published = false;
+        await enqueueSync("arrived-during-import");
+      }
+    } else if (url.includes("blocks/principles/children"))
       body = {
         results: Array.from({ length: 6 }, (_, i) =>
           block("p" + i, "numbered_list_item", {
@@ -208,6 +214,15 @@ test("durable queue, full sync, unpublishing and failure recovery", async () => 
     fail = false;
     await processQueue();
     assert.equal((await listState("job:")).length, 0);
+    published = true;
+    enqueueDuringImport = true;
+    await enqueueSync("import-before-new-event");
+    assert.deepEqual(await processQueue(), { processed: 2, articles: 0 });
+    assert.equal((await listState("job:")).length, 0);
+    assert.equal(
+      (await readState<ContentSnapshot>("content"))?.articles.length,
+      0,
+    );
     await withSyncLock(async () => {
       assert.equal(await withSyncLock(async () => true), null);
     });

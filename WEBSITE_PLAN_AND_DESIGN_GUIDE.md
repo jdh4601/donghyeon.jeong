@@ -394,3 +394,18 @@ Notion 연결에는 대상 콘텐츠에 필요한 읽기 권한만 부여한다.
 ### 2026-11-08 추가 간격·구독 영역 조정
 
 상단 영역 높이는 데스크톱 72px, 모바일 64px이며 상단 영역과 그림 사이 추가 패딩은 0이다. 그림 설명과 소개 본문 사이 여백은 데스크톱 28px, 모바일 24px로 줄인다. 하단 소개 문구·이름·이동 링크를 제거하고 이메일 입력칸과 Subscribe 버튼만 제공한다. 버튼은 Substack 공식 embed 폼에서 확인한 `POST /api/v1/free?nojs=true`로 이메일을 제출한다. 전송 이후 안내·확인은 Substack에서 처리한다.
+
+
+## 운영 연결 완료 기록 — 2026-11-08
+
+- 운영 URL: https://donghyeon-jeong.vercel.app
+- GitHub: https://github.com/jdh4601/donghyeon.jeong (`main`), Vercel Git 연결 완료.
+- Notion: `Donghyeon Website` 연결을 콘텐츠 읽기 전용·사용자 정보 접근 없음으로 생성. 웹사이트 루트만 접근 허용.
+- 공개 정책: Thoughts의 `Published` 체크박스로 관리. 기존 공개 글 22개 체크. 실제 공개 해제 → 운영 목록 21개와 글 주소 404 → 체크 복구 → 22개로 자동 복원 검증 완료.
+- 저장소: Upstash Free Redis와 private Vercel Blob, Tokyo. Redis 생성 시 자동 유료 전환과 eviction 비활성화.
+- 공식 웹훅: `/api/notion/webhook`, API `2025-09-03`, 인증·활성화 완료. 페이지·데이터 소스·데이터베이스 변경을 구독. 댓글·보기·파일 업로드 이벤트 제외.
+- 복구 작업: Vercel Hobby 제한에 맞춰 매일 UTC 18시(한국 시간 03시대), `CRON_SECRET`으로 보호. 실제 최초 예약 실행은 아직 도래하지 않았으며 스케줄 설정·인증 경로를 확인함.
+- 원본 수정은 Notion에서 계속 진행. 새 글은 `Published` 체크 후 공개. 이미 열린 브라우저 탭은 새로고침해야 최신 버전을 표시함.
+- 별도 어드민 페이지는 만들지 않음. 운영 상태·수동 재동기화는 Bearer 인증된 `/api/sync?status=1`, `/api/sync` 사용.
+- 도메인은 사용자 비교 요청에 따라 구매 중단. `dnnhynn.com`과 `donghyeon.me` 모두 아직 구매·연결하지 않음.
+- 사용자 요청으로 README는 저장소에서 삭제. 개발·디자인 기준과 운영 기록은 이 문서에서 관리.

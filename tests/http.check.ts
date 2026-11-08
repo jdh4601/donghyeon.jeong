@@ -18,7 +18,10 @@ test("home serves the real content and all 22 articles are reachable", async () 
     const responses = await Promise.all(
       links.slice(i, i + 4).map((link) => fetch(base + link)),
     );
-    for (const page of responses) assert.equal(page.status, 200);
+    for (const page of responses) {
+      assert.equal(page.status, 200);
+      assert.ok((await page.text()).includes("<main"));
+    }
   }
 });
 test("unknown and unpublished paths return 404", async () => {
@@ -35,19 +38,20 @@ test("seed images require a current published reference and are not cached publi
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^image\//);
   assert.match(response.headers.get("cache-control") ?? "", /no-store/);
+  assert.ok((await response.arrayBuffer()).byteLength > 0);
   assert.equal((await fetch(base + "/media/" + "a".repeat(64))).status, 404);
 });
-test("sync endpoints and unconfigured webhook reject public calls", async () => {
+test("sync endpoints and unsigned webhooks reject public calls", async () => {
   assert.equal((await fetch(base + "/api/sync")).status, 401);
   assert.equal(
     (await fetch(base + "/api/sync", { method: "POST" })).status,
     401,
   );
-  assert.equal(
-    (await fetch(base + "/api/notion/webhook", { method: "POST", body: "{}" }))
-      .status,
-    503,
-  );
+  const webhook = await fetch(base + "/api/notion/webhook", {
+    method: "POST",
+    body: "{}",
+  });
+  assert.ok([401, 503].includes(webhook.status));
 });
 test("sitemap contains the expected site and article URLs", async () => {
   const response = await fetch(base + "/sitemap.xml");
