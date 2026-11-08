@@ -694,7 +694,10 @@ section {
   display: inline;
   padding: 0;
   border: 0;
-  border-bottom: 1px solid #b6b6b6;
+  text-decoration: underline;
+  text-decoration-color: #b6b6b6;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
   border-radius: 0;
   background: none;
   color: inherit;

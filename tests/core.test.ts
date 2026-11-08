@@ -272,7 +272,7 @@ test("inline previews preserve Notion prose and support both Joker phrasings", (
   assert.equal((html.match(/class="inline-preview-trigger"/g) ?? []).length, 2);
   assert.match(
     html,
-    /배트맨을 향해 <button[^>]+>“Hit me!”라고 외치는 조커<\/button>처럼/,
+    /배트맨을 향해 <span[^>]+role="button"[^>]+>“Hit me!”라고 외치는 조커<\/span>처럼/,
   );
   assert.match(html, /, 리스크를 마주합니다\./);
   assert.match(html, /평범한 문장 <strong>강조<\/strong> 그대로\./);

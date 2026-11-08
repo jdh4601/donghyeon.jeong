@@ -14,7 +14,7 @@ export function InlinePreview({
 }) {
   const [open, setOpen] = useState(false);
   const [position, setPosition] = useState({ left: 12, top: 12 });
-  const trigger = useRef<HTMLButtonElement>(null);
+  const trigger = useRef<HTMLSpanElement>(null);
   const panel = useRef<HTMLDivElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pinned = useRef(false);
@@ -90,9 +90,16 @@ export function InlinePreview({
   }, [open]);
   return (
     <>
-      <button
+      <span
         ref={trigger}
-        type="button"
+        role="button"
+        tabIndex={0}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            event.currentTarget.click();
+          }
+        }}
         className="inline-preview-trigger"
         aria-expanded={open}
         aria-controls={open ? id : undefined}
@@ -114,7 +121,7 @@ export function InlinePreview({
         }}
       >
         {children}
-      </button>
+      </span>
       {open &&
         createPortal(
           <div
