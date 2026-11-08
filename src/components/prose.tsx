@@ -48,8 +48,7 @@ function textOf(children: ReactNode): string {
 export function previewJoker(children: ReactNode): ReactNode {
   return Children.map(children, (child) => {
     if (typeof child === "string") {
-      const expression =
-        /(배트맨을 향해 [“"']?Hit me![”"']?라고 외치는 조커처럼|조커가 [“"']?Hit me![”"']?라고 외치는 것처럼)/g;
+      const expression = /([“"']?Hit me![”"']?라고 외치는 조커)/g;
       return child.split(expression).map((part, index) =>
         index % 2 ? (
           <InlinePreview key={index} kind="joker">

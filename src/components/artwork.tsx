@@ -1,16 +1,33 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function Artwork({ src }: { src: string }) {
   const [open, setOpen] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
 
+  const stage = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!open || dismissed) return;
+    const outside = (event: PointerEvent) => {
+      if (
+        event.target instanceof Node &&
+        !stage.current?.contains(event.target)
+      ) {
+        setOpen(false);
+        setDismissed(true);
+      }
+    };
+    document.addEventListener("pointerdown", outside);
+    return () => document.removeEventListener("pointerdown", outside);
+  }, [open, dismissed]);
+
   return (
     <figure className="artwork" lang="en">
       <div
+        ref={stage}
         className="artwork-stage"
         onPointerEnter={(event) => {
           if (event.pointerType === "mouse") {
@@ -68,17 +85,6 @@ export function Artwork({ src }: { src: string }) {
           className="artwork-label"
           hidden={!open || dismissed}
         >
-          <button
-            className="artwork-close"
-            aria-label="Close artwork details"
-            onClick={() => {
-              trigger.current?.focus();
-              setOpen(false);
-              setDismissed(true);
-            }}
-          >
-            ×
-          </button>
           <p className="artwork-artist">Caspar David Friedrich</p>
           <p className="artwork-title">
             <cite>Monk by the Sea</cite>, 1808–1810

@@ -629,20 +629,6 @@ section {
 .artwork-label p {
   margin: 0;
 }
-.artwork-close {
-  position: sticky;
-  top: 0;
-  float: right;
-  margin: -18px -18px 0 0;
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  border: 0;
-  background: #fff;
-  color: var(--muted);
-  font: 16px/1 sans-serif;
-  cursor: pointer;
-}
 .artwork-label .artwork-artist {
   font-size: 14.4px;
   font-weight: 550;
@@ -673,12 +659,6 @@ section {
   }
   .artwork-label .artwork-description {
     margin-top: 10px;
-  }
-  .artwork-close {
-    margin: -12px -12px 0 0;
-    width: 24px;
-    height: 24px;
-    font-size: 14.4px;
   }
 }
 .sr-only {
@@ -799,4 +779,29 @@ section {
 }
 .joker-preview-caption span {
   color: #6b6b6b;
+}
+
+@media (max-width: 767px) {
+  .inline-preview-panel {
+    width: min(300px, calc(100% - 40px));
+    padding: 16px;
+    font-size: 11.2px;
+  }
+  .inline-preview-joker {
+    padding: 10px;
+  }
+  .book-preview-heading {
+    gap: 12px;
+    padding-right: 0;
+  }
+  .book-preview-heading img {
+    width: 64px;
+  }
+  .book-preview-heading strong,
+  .joker-preview-caption strong {
+    font-size: 14px;
+  }
+  .book-preview-summary {
+    margin-top: 12px;
+  }
 }
