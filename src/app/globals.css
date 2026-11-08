@@ -223,10 +223,10 @@ section {
 }
 .quote-mark {
   position: absolute;
-  top: -16px;
+  top: -8px;
   left: -3px;
   font-family: Literary, Georgia, serif;
-  font-size: 44.8px;
+  font-size: 32px;
   font-weight: 400;
   line-height: 1;
 }
@@ -395,7 +395,9 @@ section {
   border: 1px solid var(--line);
   color: var(--muted);
   font-size: 11.2px;
-  transition: color 0.2s, border-color 0.2s;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
 }
 .article-list-return:hover,
 .article-list-return:focus-visible {
@@ -497,8 +499,8 @@ section {
     margin-block: 28px;
   }
   .quote-mark {
-    font-size: 36.8px;
-    top: -12px;
+    font-size: 28px;
+    top: -7px;
   }
   .principles {
     padding: 14px 20px;
@@ -700,4 +702,111 @@ section {
   .site-header a {
     padding-block: 6px;
   }
+}
+
+.inline-preview-trigger {
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #b6b6b6;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+.inline-preview-trigger:focus-visible {
+  outline: 1px solid #6b6b6b;
+  outline-offset: 3px;
+}
+.inline-preview-panel {
+  position: fixed;
+  z-index: 100;
+  box-sizing: border-box;
+  width: min(360px, calc(100vw - 24px));
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  padding: 20px;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+  line-height: 1.7;
+  box-shadow: 0 4px 20px #0000000a;
+}
+.inline-preview-close {
+  position: absolute;
+  right: 4px;
+  top: 2px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: white;
+  color: #6b6b6b;
+  font-size: 20px;
+  cursor: pointer;
+}
+.book-preview-heading {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding-right: 10px;
+}
+.book-preview-heading img {
+  width: 78px;
+  height: auto;
+}
+.book-preview-heading strong,
+.book-preview-heading span,
+.book-preview-heading a {
+  display: block;
+}
+.book-preview-heading strong {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.book-preview-heading span,
+.book-preview-heading a {
+  color: #6b6b6b;
+}
+.book-preview-heading a {
+  margin-top: 7px;
+}
+.book-preview-summary {
+  margin-top: 16px;
+}
+.book-preview-summary p {
+  margin: 0 0 5px;
+}
+.book-preview-summary p:last-child {
+  margin-bottom: 0;
+}
+.inline-preview-joker {
+  padding: 12px;
+}
+.joker-preview-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.inline-preview-joker .inline-preview-close {
+  top: 14px;
+  right: 14px;
+  background: #fffffff0;
+}
+.joker-preview-caption {
+  padding: 10px 3px 0;
+}
+.joker-preview-caption strong,
+.joker-preview-caption span {
+  display: block;
+}
+.joker-preview-caption strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+.joker-preview-caption span {
+  color: #6b6b6b;
 }

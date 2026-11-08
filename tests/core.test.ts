@@ -260,3 +260,24 @@ test("durable queue, full sync, unpublishing and failure recovery", async () => 
     await rm(dataDir, { recursive: true, force: true });
   }
 });
+
+test("inline previews preserve Notion prose and support both Joker phrasings", () => {
+  const html = renderToStaticMarkup(
+    createElement(Prose, {
+      markdown:
+        "앞 [랜디 코미사의 ‘승려의 수수께끼’](/p/40b0690db3a680c58c2dea83e51360d9) 뒤\n\n배트맨을 향해 “Hit me!”라고 외치는 조커처럼, 리스크를 마주합니다.\n\n평범한 문장 **강조** 그대로.",
+      links: { "40b0690db3a680c58c2dea83e51360d9": "love-and-passion" },
+    }),
+  );
+  assert.equal((html.match(/class="inline-preview-trigger"/g) ?? []).length, 2);
+  assert.match(html, /배트맨을 향해 “Hit me!”라고 외치는 조커처럼/);
+  assert.match(html, /, 리스크를 마주합니다\./);
+  assert.match(html, /평범한 문장 <strong>강조<\/strong> 그대로\./);
+  const alternate = renderToStaticMarkup(
+    createElement(Prose, {
+      markdown: "조커가 “Hit me!”라고 외치는 것처럼, 감수합니다.",
+    }),
+  );
+  assert.match(alternate, /class="inline-preview-trigger"/);
+  assert.match(alternate, /, 감수합니다\./);
+});

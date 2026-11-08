@@ -1,7 +1,8 @@
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
-import { Children, isValidElement, type ReactNode } from "react";
+import { Children, cloneElement, isValidElement, type ReactNode } from "react";
+import { InlinePreview } from "./inline-preview";
 import { compactId } from "@/lib/types";
 
 const anchors: Record<string, string> = {
@@ -43,6 +44,31 @@ function textOf(children: ReactNode): string {
     )
     .join("");
 }
+// Match the phrase itself, leaving the surrounding Notion prose untouched.
+export function previewJoker(children: ReactNode): ReactNode {
+  return Children.map(children, (child) => {
+    if (typeof child === "string") {
+      const expression =
+        /(배트맨을 향해 [“"']?Hit me![”"']?라고 외치는 조커처럼|조커가 [“"']?Hit me![”"']?라고 외치는 것처럼)/g;
+      return child.split(expression).map((part, index) =>
+        index % 2 ? (
+          <InlinePreview key={index} kind="joker">
+            {part}
+          </InlinePreview>
+        ) : (
+          part
+        ),
+      );
+    }
+    if (
+      isValidElement<{ children?: ReactNode }>(child) &&
+      typeof child.type === "string" &&
+      !["a", "button", "code"].includes(child.type)
+    )
+      return cloneElement(child, {}, previewJoker(child.props.children));
+    return child;
+  });
+}
 export function normalizeQuotes(markdown: string) {
   return markdown
     .split("\n")
@@ -83,6 +109,12 @@ export function Prose({
                   />
                 </span>
               );
+            if (/승려[의와] 수수께끼/.test(textOf(children)))
+              return (
+                <InlinePreview kind="book" href={target}>
+                  {children}
+                </InlinePreview>
+              );
             return (
               <a
                 href={target}
@@ -115,7 +147,7 @@ export function Prose({
             textOf(children).trim() === "" ? (
               <div className="media-paragraph">{children}</div>
             ) : (
-              <p>{children}</p>
+              <p>{previewJoker(children)}</p>
             ),
         }}
       >
