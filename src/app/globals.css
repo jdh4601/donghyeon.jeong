@@ -735,19 +735,7 @@ section {
   line-height: 1.7;
   box-shadow: 0 4px 20px #0000000a;
 }
-.inline-preview-close {
-  position: absolute;
-  right: 4px;
-  top: 2px;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  border: 0;
-  background: white;
-  color: #6b6b6b;
-  font-size: 20px;
-  cursor: pointer;
-}
+
 .book-preview-heading {
   display: flex;
   gap: 16px;
@@ -791,11 +779,7 @@ section {
   width: 100%;
   height: auto;
 }
-.inline-preview-joker .inline-preview-close {
-  top: 14px;
-  right: 14px;
-  background: #fffffff0;
-}
+
 .joker-preview-caption {
   padding: 10px 3px 0;
 }

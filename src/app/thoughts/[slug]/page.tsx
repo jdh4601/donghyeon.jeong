@@ -42,7 +42,7 @@ export default async function ArticlePage({ params }: Props) {
       <article>
         <header className="article-header">
           <Link className="back-link" href="/#thoughts">
-            ← Thoughts
+            ← thoughts
           </Link>
           <h1>{a.title}</h1>
           {a.date && (

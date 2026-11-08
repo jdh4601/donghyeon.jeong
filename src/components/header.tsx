@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 
 const items = [
   { id: "top", label: "Donghyeon Jeong" },
-  { id: "about", label: "About" },
-  { id: "manifesto", label: "Manifesto" },
-  { id: "thoughts", label: "Thoughts" },
+  { id: "about", label: "about" },
+  { id: "manifesto", label: "manifesto" },
+  { id: "thoughts", label: "thoughts" },
 ];
 export function Header() {
   const pathname = usePathname();

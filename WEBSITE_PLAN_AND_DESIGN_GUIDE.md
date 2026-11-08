@@ -433,3 +433,7 @@ Manifesto 항목의 위아래 패딩은 데스크톱 10px·모바일 9px, 박스
 - 책 정보·표지 출처: https://www.yes24.com/product/goods/11529808 (2020 이콘 판).
 - 영화 정보 출처: https://www.dc.com/movies/the-dark-knight-2008
 - 인용문 장식 따옴표: 데스크톱 32px, 모바일 28px.
+
+### 표시 문구와 미리보기 닫기
+- 내비게이션과 섹션 제목은 about, manifesto, thoughts 소문자로 표시한다. Donghyeon Jeong은 유지한다.
+- 책·영화 미리보기의 × 버튼은 제거한다. 문구 재클릭, 바깥 클릭, Escape로 닫을 수 있으며 hover로 열린 창은 포인터가 벗어나면 닫힌다.

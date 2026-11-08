@@ -28,12 +28,12 @@ export default async function Home() {
         <Prose markdown={data.home.intro} links={links} />
       </section>
       <section id="about" className="text-section">
-        <h2>About</h2>
+        <h2>about</h2>
         <Prose markdown={data.home.about} links={links} />
         <Socials />
       </section>
       <section id="manifesto" className="text-section">
-        <h2>Manifesto</h2>
+        <h2>manifesto</h2>
         <ol className="principles">
           {data.home.manifesto.map((p, i) => (
             <li key={p.en}>
@@ -51,7 +51,7 @@ export default async function Home() {
         </ol>
       </section>
       <section id="thoughts" className="text-section thoughts">
-        <h2>Thoughts</h2>
+        <h2>thoughts</h2>
         <ul className="article-list">
           {articles.map((a) => (
             <li key={a.id}>

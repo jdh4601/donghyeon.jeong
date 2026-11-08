@@ -135,17 +135,6 @@ export function InlinePreview({
               pinned.current = true;
             }}
           >
-            <button
-              type="button"
-              className="inline-preview-close"
-              aria-label="미리보기 닫기"
-              onClick={() => {
-                close();
-                trigger.current?.focus();
-              }}
-            >
-              ×
-            </button>
             {kind === "book" ? (
               <>
                 <div className="book-preview-heading">
