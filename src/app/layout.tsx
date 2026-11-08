@@ -3,8 +3,9 @@ import { Header } from "@/components/header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "동현정 — Donghyeon Jeong", template: "%s · 동현정" },
-  description: "자신에게 진실하게, 좋아하는 일에 깊이. 동현정의 생각과 기록.",
+  title: { default: "Donghyeon Jeong", template: "%s · Donghyeon Jeong" },
+  description: "자신에게 진실하게, 좋아하는 일에 깊이. Donghyeon Jeong의 생각과 기록.",
+  openGraph: { title: "Donghyeon Jeong", siteName: "Donghyeon Jeong" },
   robots: process.env.NEXT_PUBLIC_SITE_URL
     ? { index: true, follow: true }
     : { index: false, follow: false },

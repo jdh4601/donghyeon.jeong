@@ -462,7 +462,7 @@ section {
     padding-top: 0;
   }
   .hero figcaption {
-    font-size: 11px;
+    font-size: clamp(8px, 2.6vw, 11px);
     margin-top: 8px;
   }
   .text-section {
@@ -572,9 +572,7 @@ section {
 /* User-confirmed refinements: centered artwork caption, no visible Intro heading. */
 .hero figcaption {
   text-align: center;
-}
-.artwork figcaption span {
-  display: block;
+  white-space: nowrap;
 }
 .artwork-stage {
   position: relative;
@@ -656,15 +654,33 @@ section {
   .artwork-label {
     right: 12px;
     bottom: 12px;
-    width: calc(100% - 24px);
-    max-height: calc(100% - 24px);
-    padding: 20px;
-    font-size: 13px;
+    width: min(250px, calc(100% - 32px));
+    max-height: 70%;
+    padding: 14px;
+    font-size: 12px;
     line-height: 1.4;
   }
   .artwork-label .artwork-artist,
   .artwork-label .artwork-title {
-    font-size: 16px;
+    font-size: 14px;
+  }
+  .artwork-label .artwork-title {
+    margin-top: 8px;
+  }
+  .artwork-label .artwork-description {
+    margin-block: 10px;
+  }
+  .artwork-dates,
+  .artwork-material,
+  .artwork-label a,
+  .artwork-inventory {
+    font-size: 11px;
+  }
+  .artwork-close {
+    margin: -12px -12px 0 0;
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
   }
 }
 .sr-only {

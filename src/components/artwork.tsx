@@ -102,10 +102,7 @@ export function Artwork({ src }: { src: string }) {
         </div>
       </div>
       <figcaption>
-        <span>Caspar David Friedrich</span>
-        <span>
-          <cite>Monk by the Sea</cite>, 1808–1810
-        </span>
+        Caspar David Friedrich, <cite>Monk by the Sea</cite>, 1808–1810
       </figcaption>
     </figure>
   );
