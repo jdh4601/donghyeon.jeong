@@ -413,3 +413,5 @@ Notion 연결에는 대상 콘텐츠에 필요한 읽기 권한만 부여한다.
 Intro와 About은 Notion의 본문을 그대로 동기화하며, 기존 본문 블록을 삭제하고 새로 작성해 블록 ID가 바뀌어도 섹션 제목(About, Manifesto, Thoughts)을 유지하면 인식한다. Intro는 그림 다음부터 About 앞까지 읽는다. 전체 본문·헤딩 블록 교체 시나리오를 회귀 테스트로 검증했다.
 
 사이트 이름과 공유 미리보기 제목은 `Donghyeon Jeong`만 사용한다. 그림 아래 캡션은 `Caspar David Friedrich, Monk by the Sea, 1808–1810` 한 줄로 표시한다.
+
+글 상세 하단의 구분선·목록 복귀·위로 링크는 표시하지 않는다.

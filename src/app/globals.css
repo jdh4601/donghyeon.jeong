@@ -405,15 +405,6 @@ section {
   font-size: 14px;
   margin-top: 20px;
 }
-.article-footer {
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid var(--line);
-  margin-top: 80px;
-  padding: 32px 0 60px;
-  color: var(--muted);
-  font-size: 14px;
-}
 .not-found {
   padding-top: 100px;
 }
@@ -538,9 +529,6 @@ section {
   }
   .back-link {
     margin-bottom: 28px;
-  }
-  .article-footer {
-    font-size: 12px;
   }
   .not-found {
     padding-top: 60px;
