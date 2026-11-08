@@ -45,13 +45,16 @@ export function InlinePreview({
       if (!anchor || !box) return;
       const below = anchor.bottom + 10;
       const top =
-        below + box.height <= window.innerHeight - 12
+        below + box.height <= document.documentElement.clientHeight - 12
           ? below
           : Math.max(12, anchor.top - box.height - 10);
       setPosition({
         left: Math.max(
           12,
-          Math.min(anchor.left, window.innerWidth - box.width - 12),
+          Math.min(
+            anchor.left,
+            document.documentElement.clientWidth - box.width - 12,
+          ),
         ),
         top,
       });
