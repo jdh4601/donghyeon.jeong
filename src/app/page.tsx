@@ -91,6 +91,7 @@ export default async function Home() {
             Subscribe
           </button>
         </form>
+        <p className="site-copyright">Copyright © 2026 Donghyeon Jeong</p>
       </footer>
     </main>
   );

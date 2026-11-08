@@ -337,6 +337,12 @@ section {
   padding-block: 24px 56px;
   color: var(--muted);
 }
+.site-copyright {
+  margin: 40px 0 0;
+  color: var(--muted);
+  font-size: 10.4px;
+  text-align: center;
+}
 .newsletter-form {
   display: flex;
   align-items: center;

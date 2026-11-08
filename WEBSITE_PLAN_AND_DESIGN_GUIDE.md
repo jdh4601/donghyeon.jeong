@@ -448,3 +448,6 @@ Notion 공식 API의 image 블록은 편집기에서 드래그한 표시 너비�
 
 ### 사이트 아이콘
 사용자 요청에 따라 https://hynfinity.substack.com 의 배·바다 사진과 동일한 아이콘을 사용한다. Substack에서 제공하는 48px PNG를 `src/app/icon.png`, 180px PNG를 `src/app/apple-icon.png`에 보관한다. 원본 1278px 사진은 `/hyunfinity-icon-original.png`에서 제공한다. 출처 원본: https://substack-post-media.s3.amazonaws.com/public/images/a366b89a-8e21-4c78-bdf3-86efa8614cfb_1278x1278.png
+
+### 저작권 푸터
+메인 뉴스레터 구독 폼 아래에 `Copyright © 2026 Donghyeon Jeong`을 10.4px 회색·가운데 정렬로 표시한다. 별도 구분선이나 장식은 추가하지 않는다.
