@@ -160,7 +160,7 @@ section {
   margin-bottom: 28px;
 }
 .prose p {
-  margin: 0 0 24px;
+  margin: 0 0 18px;
 }
 .prose p:last-child {
   margin-bottom: 0;
@@ -217,7 +217,7 @@ section {
 }
 .prose blockquote {
   border: 0;
-  margin: 44px 0;
+  margin: 32px 0;
   padding: 0 0 0 32px;
   position: relative;
 }
@@ -494,7 +494,7 @@ section {
   }
   .prose blockquote {
     padding-left: 24px;
-    margin-block: 36px;
+    margin-block: 28px;
   }
   .quote-mark {
     font-size: 36.8px;
