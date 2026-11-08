@@ -51,6 +51,11 @@ export default async function ArticlePage({ params }: Props) {
         </header>
         <Prose markdown={a.markdown} links={links} />
       </article>
+      <footer className="article-end">
+        <Link href="/#thoughts" className="article-list-return">
+          ← 목록으로 돌아가기
+        </Link>
+      </footer>
     </main>
   );
 }
