@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@/components/analytics";
 import { Header } from "@/components/header";
 import "./globals.css";
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         <Header />
         {children}
       </body>
+      <Analytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
     </html>
   );
 }
